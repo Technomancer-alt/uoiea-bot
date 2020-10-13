@@ -46,7 +46,7 @@ async def on_message(message: discord.message):
 
 
 def getKey():
-	return S3Connection(os.environ['BOT_TOKEN'])
+	return os.getenv('BOT_TOKEN')
 
 
 client.run(getKey())
