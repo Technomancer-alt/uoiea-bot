@@ -1,7 +1,6 @@
 import discord
 import random
 import os
-from boto.s3.connection import S3Connection
 
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
