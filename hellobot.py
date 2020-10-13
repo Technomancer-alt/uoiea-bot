@@ -48,4 +48,7 @@ def getKey():
 	return os.getenv('BOT_TOKEN')
 
 
+print('Starting')
+print('Key: ' + getKey())
 client.run(getKey())
+print('Started')
