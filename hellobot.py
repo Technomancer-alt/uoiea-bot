@@ -1,6 +1,7 @@
 import discord
 import random
 import os
+from boto.s3.connection import S3Connection
 
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
@@ -45,7 +46,7 @@ async def on_message(message: discord.message):
 
 
 def getKey():
-	return os.environ('BOT_TOKEN')
+	return S3Connection(os.environ['BOT_TOKEN'])
 
 
 client.run(getKey())
