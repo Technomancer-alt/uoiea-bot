@@ -36,11 +36,11 @@ async def on_member_join(member: discord.member):
 
 @client.event
 async def on_message(message: discord.message):
-	if '@Uioea' in message.content or 'BOT_STATUS' in message.content:
+	if '@Uioea' in message.content and 'BOT_STATUS' in message.content:
 		print('Status was requested')
 		key = getKey()
 		if len(key) > 8:
-			key = key[0:8] + (len(key) - 8) * '*'  # Redact the rest of this for security
+			key = key[0:8] + (len(key) - 8) * 'X'  # Redact the rest of this for security
 		await message.channel.send('Currently online; Key is: ' + key)
 
 
