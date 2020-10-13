@@ -37,7 +37,7 @@ async def on_member_join(member: discord.member):
 
 @client.event
 async def on_message(message: discord.message):
-	if '@UIOEA' in message.content and 'STATUS' in message.content:
+	if '@Uioea' in message.content or 'BOT_STATUS' in message.content:
 		print('Status was requested')
 		key = getKey()
 		if len(key) > 8:
