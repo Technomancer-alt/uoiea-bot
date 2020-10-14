@@ -38,7 +38,11 @@ greetings = [
 ]
 
 def getMessage():
-	return greetings[math.floor(math.sqrt(random.randint(0, len(greetings) ** 2 - 1)))]
+	# Weighted random; entries have a weight equal to their position in the list (not their index; position starts at 1)
+	count = len(greetings)
+	weightIndex = random.randint(0, (count ** 2 + count) / 2 - 1)
+	index = math.floor((math.sqrt(1 + 8 * weightIndex) - 1) / 2)
+	return greetings[index]
 
 @client.event
 async def on_member_join(member: discord.member):
@@ -53,7 +57,7 @@ async def on_message(message: discord.message):
 		print('Status was requested')
 		key = getKey()
 		if len(key) > 8:
-			key = key[0:8] + (len(key) - 8) * 'X'  # Redact the rest of this for security
+			key = key[0:8] + (len(key) - 8) * '-'  # Redact the rest of this for security
 		await message.channel.send('Currently online; Key is: ' + key)
 	elif '>>BOT_WELCOME' in message.content:
 		print('Message was requested')
