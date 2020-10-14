@@ -1,6 +1,7 @@
 import discord
 import random
 import os
+import math
 
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
@@ -37,7 +38,7 @@ greetings = [
 ]
 
 def getMessage():
-	return greetings[floor(sqrt(random.randint(0, len(greetings) ** 2 - 1)))]
+	return greetings[math.floor(math.sqrt(random.randint(0, len(greetings) ** 2 - 1)))]
 
 @client.event
 async def on_member_join(member: discord.member):
