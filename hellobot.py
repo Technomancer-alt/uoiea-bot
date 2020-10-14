@@ -58,6 +58,9 @@ async def on_message(message: discord.message):
 	elif '>>BOT_WELCOME' in message.content:
 		print('Message was requested')
 		await message.channel.send(getMessage())
+	elif '>>BOT_MUSIC' in message.content:
+		print('Music was requested')
+		await message.channel.send('https://www.youtube.com/watch?v=c5daGZ96QGU&ab_channel=Misaki')
 
 def getKey():
 	return os.getenv('BOT_TOKEN')
