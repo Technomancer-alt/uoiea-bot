@@ -18,6 +18,7 @@ greetings = [
 	'Looks like meat is back on the menu, boys!',
 	'Abandon hope, all ye who enter here',
 	'Hey! Look at this nerd',
+	'@Aeiou Say hello to this person',
 	'Kon\'nichiwa',
 	'You! Person who just joined! Very important question: What do you think of the Dewey Decimal System?',
 	'I think the account that just joined is a bot',
@@ -47,16 +48,15 @@ async def on_member_join(member: discord.member):
 
 @client.event
 async def on_message(message: discord.message):
-	if '@Uoiea' in message.content:
-		if 'BOT_STATUS' in message.content:
-			print('Status was requested')
-			key = getKey()
-			if len(key) > 8:
-				key = key[0:8] + (len(key) - 8) * 'X'  # Redact the rest of this for security
-			await message.channel.send('Currently online; Key is: ' + key)
-		elif 'BOT_WELCOME' in message.content:
-			await message.channel.send(getMessage())
-
+	if '>>BOT_STATUS' in message.content:
+		print('Status was requested')
+		key = getKey()
+		if len(key) > 8:
+			key = key[0:8] + (len(key) - 8) * 'X'  # Redact the rest of this for security
+		await message.channel.send('Currently online; Key is: ' + key)
+	elif '>>BOT_WELCOME' in message.content:
+		print('Message was requested')
+		await message.channel.send(getMessage())
 
 def getKey():
 	return os.getenv('BOT_TOKEN')
