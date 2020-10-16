@@ -15,8 +15,10 @@ async def on_ready():
 greetings = [
 	'No one would have believed in the last years of the nineteenth century that this world was being watched keenly and closely by intelligences greater than man’s and yet as mortal as his own; that as men busied themselves about their various concerns they were scrutinised and studied, perhaps almost as narrowly as a man with a microscope might scrutinise the transient creatures that swarm and multiply in a drop of water. Know this, new member: We\'re watching you.',
 	'In a distant and secondhand set of dimensions, in an astral plane that was never meant to fly, the curling star mists waver and part... see... this latest member of our community',
+	'Welcome to The Salty Spittoon. How tough are you?',
 	'Furthermore, I believe Carthage should be destroyed',
 	'Looks like meat is back on the menu, boys!',
+	'This is getting out of hand. Now there are two of them?',
 	'Abandon hope, all ye who enter here',
 	'Hey! Look at this nerd',
 	'@Aeiou Say hello to this person',
@@ -28,6 +30,7 @@ greetings = [
 	'*Welcoming honking noises*',
 	'Aloha',
 	'Hola',
+	'Speak of the devil...',
 	'Bonjour',
 	'Hello there',
 	'Welcome',
