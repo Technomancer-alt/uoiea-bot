@@ -2,6 +2,7 @@ import discord
 import random
 import os
 import math
+import time
 
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
@@ -50,6 +51,7 @@ def getMessage():
 @client.event
 async def on_member_join(member: discord.member):
 	print('Someone joined as ' + str(member))
+	time.sleep(1) # If we don't sleep, sometimes we send the message before the normal Discord join message
 	greeting = getMessage()
 	await member.guild.text_channels[0].send(greeting)
 
