@@ -14,39 +14,44 @@ async def on_ready():
 
 
 greetings = [
-	'No one would have believed in the last years of the nineteenth century that this world was being watched keenly and closely by intelligences greater than man’s and yet as mortal as his own; that as men busied themselves about their various concerns they were scrutinised and studied, perhaps almost as narrowly as a man with a microscope might scrutinise the transient creatures that swarm and multiply in a drop of water. Know this, new member: We\'re watching you.',
-	'In a distant and secondhand set of dimensions, in an astral plane that was never meant to fly, the curling star mists waver and part... see... this latest member of our community',
-	'Welcome to The Salty Spittoon. How tough are you?',
-	'Furthermore, I believe Carthage should be destroyed',
-	'Looks like meat is back on the menu, boys!',
-	'This is getting out of hand. Now there are two of them?',
-	'Abandon hope, all ye who enter here',
-	'Hey! Look at this nerd',
-	'@Aeiou Say hello to this person',
-	'Kon\'nichiwa',
-	'You! Person who just joined! Very important question: What do you think of the Dewey Decimal System?',
-	'I think the account that just joined is a bot',
-	'Hallo',
-	'*Aggressive honking noises*',
-	'*Welcoming honking noises*',
-	'Aloha',
-	'Hola',
-	'Speak of the devil...',
-	'Bonjour',
-	'Hello there',
-	'Welcome',
-	'Hi!',
-	'Guten Tag',
-	'Hiya',
-	'Hello'
+	('No one would have believed in the last years of the nineteenth century that this world was being watched keenly and closely by intelligences greater than man’s and yet as mortal as his own; that as men busied themselves about their various concerns they were scrutinised and studied, perhaps almost as narrowly as a man with a microscope might scrutinise the transient creatures that swarm and multiply in a drop of water. Know this, new member: We\'re watching you.', 1),
+	('In a distant and secondhand set of dimensions, in an astral plane that was never meant to fly, the curling star mists waver and part... see... this latest member of our community', 1),
+	('Welcome to The Salty Spittoon. How tough are you?', 3),
+	('Furthermore, I believe Carthage should be destroyed', 3),
+	('Looks like meat is back on the menu, boys!', 5),
+	('This is getting out of hand. Now there are two of them?', 5),
+	('Abandon hope, all ye who enter here', 5),
+	('technodancer does it have "What are you doing in my swamp!?"', 2),
+	('Hey! Look at this nerd', 5),
+	('You\'re finally awake', 3),
+	('@Aeiou Say hello to this person', 5),
+	('Kon\'nichiwa', 10),
+	('You! Person who just joined! Very important question: What do you think of the Dewey Decimal System?', 5),
+	('I think the account that just joined is a bot', 5),
+	('Hallo', 10),
+	('*Aggressive honking noises*', 8),
+	('*Welcoming honking noises*', 8),
+	('Aloha', 10),
+	('Hola', 10),
+	('Speak of the devil...', 8),
+	('Bonjour', 10),
+	('Hello there', 10),
+	('Welcome', 10),
+	('Hi!', 10),
+	('Guten Tag', 10),
+	('Hiya', 10),
+	('Hello', 10)
 ]
 
 def getMessage():
-	# Weighted random; entries have a weight equal to their position in the list (not their index; position starts at 1)
-	count = len(greetings)
-	weightIndex = random.randint(0, (count ** 2 + count) / 2 - 1)
-	index = math.floor((math.sqrt(1 + 8 * weightIndex) - 1) / 2)
-	return greetings[index]
+	sumWeight = [sum(entry[1]) for entry in greetings]
+	selection = random.randint(0, sumWeight)
+	for entry in greetings:
+		weight -= entry(1)
+		if weight <= 0:
+			return entry(0)
+	return 'YOU CAUSED A GLITCH, YOU BUGGER!'
+
 
 @client.event
 async def on_member_join(member: discord.member):
