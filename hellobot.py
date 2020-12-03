@@ -86,19 +86,22 @@ async def on_message(message: discord.message):
 		await message.channel.send('`>>BOT_HELP`: Displays the list of bot commands')
 		await message.channel.send('`>>BOT_DEWEY for`: Makes you `@pro dewey decimal system`')
 		await message.channel.send('`>>BOT_DEWEY against`: Makes you `@anti dewey decimal system`')
-		await message.channel.send('`>>BOT_DEWEY out`: Makes you neutral on the dewey decimal system (you coward)')
+		await message.channel.send('`>>BOT_DEWEY out`: Makes you neutral on the dewey decimal system')
 	elif '>>BOT_DEWEY' in message.content:
-		proRole = discord.utils.find(lambda r: r.name == 'pro dewey decimal system', message.channel.roles)
-		antiRole = discord.utils.find(lambda r: r.name == 'anti dewey decimal system', message.channel.roles)
+		proRole = discord.utils.find(lambda r: r.name == 'pro dewey decimal system', message.guild.roles)
+		antiRole = discord.utils.find(lambda r: r.name == 'anti dewey decimal system', message.guild.roles)
 		if 'for' in message.content:
 			await message.author.remove_roles(antiRole)
 			await message.author.add_roles(proRole)
+			await message.channel.send('Welcome to the fight')
 		elif 'against' in message.content:
 			await message.author.add_roles(antiRole)
 			await message.author.remove_roles(proRole)
+			await message.channel.send('You joined a thing')
 		elif 'out' in message.content:
 			await message.author.remove_roles(antiRole)
 			await message.author.remove_roles(proRole)
+			await message.channel.send('Take a side you coward')
 
 			
 def getKey():
