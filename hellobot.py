@@ -49,8 +49,8 @@ def getMessage():
 		sumWeight += entry[1]
 	selection = random.randint(0, sumWeight)
 	for entry in greetings:
-		weight -= entry[1]
-		if weight <= 0:
+		selection -= entry[1]
+		if selection <= 0:
 			return entry[0]
 	return 'YOU CAUSED A GLITCH, YOU BUGGER!'
 
