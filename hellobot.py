@@ -63,6 +63,9 @@ async def on_member_join(member: discord.member):
 
 @client.event
 async def on_message(message: discord.message):
+	if message.author == client.user:
+		return # Don't reply to ourself
+	
 	if '>>BOT_STATUS' in message.content:
 		print('Status was requested')
 		key = getKey()
@@ -75,7 +78,29 @@ async def on_message(message: discord.message):
 	elif '>>BOT_MUSIC' in message.content:
 		print('Music was requested')
 		await message.channel.send('https://www.youtube.com/watch?v=c5daGZ96QGU&ab_channel=Misaki')
+	elif '>>BOT_HELP' in message.content:
+		print('Help requested')
+		await message.channel.send('`>>BOT_STATUS`: Tells you if the bot is online')
+		await message.channel.send('`>>BOT_MUSIC`: Links a song')
+		await message.channel.send('`>>BOT_WELCOME`: Says a welcome message')
+		await message.channel.send('`>>BOT_HELP`: Displays the list of bot commands')
+		await message.channel.send('`>>BOT_DEWEY for`: Makes you `@pro dewey decimal system`')
+		await message.channel.send('`>>BOT_DEWEY against`: Makes you `@anti dewey decimal system`')
+		await message.channel.send('`>>BOT_DEWEY out`: Makes you neutral on the dewey decimal system (you coward)')
+	elif '>>BOT_DEWEY' in message.content:
+		proRole = discord.utils.find(lambda r: r.name == 'pro dewey decimal system', message.channel.roles)
+		antiRole = discord.utils.find(lambda r: r.name == 'anti dewey decimal system', message.channel.roles)
+		if 'for' in message.content:
+			await message.author.remove_roles(antiRole)
+			await message.author.add_roles(proRole)
+		elif 'against' in message.content:
+			await message.author.add_roles(antiRole)
+			await message.author.remove_roles(proRole)
+		elif 'out' in message.content:
+			await message.author.remove_roles(antiRole)
+			await message.author.remove_roles(proRole)
 
+			
 def getKey():
 	return os.getenv('BOT_TOKEN')
 
