@@ -17,6 +17,7 @@ greetings = [
 	('No one would have believed in the last years of the nineteenth century that this world was being watched keenly and closely by intelligences greater than man’s and yet as mortal as his own; that as men busied themselves about their various concerns they were scrutinised and studied, perhaps almost as narrowly as a man with a microscope might scrutinise the transient creatures that swarm and multiply in a drop of water. Know this, new member: We\'re watching you.', 1),
 	('In a distant and secondhand set of dimensions, in an astral plane that was never meant to fly, the curling star mists waver and part... see... this latest member of our community', 1),
 	('Welcome to The Salty Spittoon. How tough are you?', 3),
+	('Freddie Mercury did nothing wrong', 3),
 	('Furthermore, I believe Carthage should be destroyed', 3),
 	('Looks like meat is back on the menu, boys!', 5),
 	('This is getting out of hand. Now there are two of them?', 5),
@@ -89,6 +90,8 @@ async def on_message(message: discord.message):
 		await message.channel.send('`>>BOT_DEWEY for`: Makes you `@pro dewey decimal system`')
 		await message.channel.send('`>>BOT_DEWEY against`: Makes you `@anti dewey decimal system`')
 		await message.channel.send('`>>BOT_DEWEY out`: Makes you neutral on the dewey decimal system')
+		await message.channel.send('`>>BOT_PING`: Ping pong')
+		await message.channel.send('1 secret command :thinking:')
 	elif '>>BOT_DEWEY' in message.content:
 		proRole = discord.utils.find(lambda r: r.name == 'pro dewey decimal system', message.guild.roles)
 		antiRole = discord.utils.find(lambda r: r.name == 'anti dewey decimal system', message.guild.roles)
@@ -104,8 +107,14 @@ async def on_message(message: discord.message):
 			await message.author.remove_roles(antiRole)
 			await message.author.remove_roles(proRole)
 			await message.channel.send('Take a side you coward')
+	elif '>>BOT_PING' in message.content:
+		print('Ping pong')
+		await message.channel.send('Pong!')
+	elif '>>BOT_PONG' in message.content:
+		print('pong ping')
+		await message.channel.send('Ping!')
 
-			
+
 def getKey():
 	return os.getenv('BOT_TOKEN')
 
