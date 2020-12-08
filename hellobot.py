@@ -91,6 +91,8 @@ async def on_message(message: discord.message):
 		await message.channel.send('`>>BOT_DEWEY against`: Makes you `@anti dewey decimal system`')
 		await message.channel.send('`>>BOT_DEWEY out`: Makes you neutral on the dewey decimal system')
 		await message.channel.send('`>>BOT_PING`: Ping pong')
+		await message.channel.send('`>>BOT_SERVER join`: Gives you the `@Server player` role')
+		await message.channel.send('`>>BOT_SERVER leave`: Removes your `@Server player` role')
 		await message.channel.send('1 secret command :thinking:')
 	elif '>>BOT_DEWEY' in message.content:
 		proRole = discord.utils.find(lambda r: r.name == 'pro dewey decimal system', message.guild.roles)
@@ -113,8 +115,16 @@ async def on_message(message: discord.message):
 	elif '>>BOT_PONG' in message.content:
 		print('pong ping')
 		await message.channel.send('Ping!')
+	elif '>>BOT_SERVER' in message.content:
+		serverRole = discord.utils.find(lambda r: r.name == 'Server player', message.guild.roles)
+		if 'join' in message.content:
+			await message.author.add_roles(serverRole)
+			await message.channel.send('Welcome to the public server')
+		elif 'leave' in message.content:
+			await message.author.remove_roles(serverRole)
+			await message.channel.send('We\'ll miss you')
 
-
+			
 def getKey():
 	return os.getenv('BOT_TOKEN')
 
