@@ -25,7 +25,7 @@ greetings = [
 	('technodancer does it have "What are you doing in my swamp!?"', 2),
 	('Hey! Look at this nerd', 5),
 	('You\'re finally awake', 3),
-	('@Aeiou Say hello to this person', 5),
+	('<@0001> Say hello to this person', 5),
 	('Kon\'nichiwa', 10),
 	('You! Person who just joined! Very important question: What do you think of the Dewey Decimal System?', 5),
 	('I think the account that just joined is a bot', 5),
@@ -83,17 +83,17 @@ async def on_message(message: discord.message):
 		await message.channel.send('https://www.youtube.com/watch?v=c5daGZ96QGU&ab_channel=Misaki')
 	elif '>>BOT_HELP' in message.content:
 		print('Help requested')
-		await message.channel.send('`>>BOT_STATUS`: Tells you if the bot is online')
-		await message.channel.send('`>>BOT_MUSIC`: Links a song')
-		await message.channel.send('`>>BOT_WELCOME`: Says a welcome message')
-		await message.channel.send('`>>BOT_HELP`: Displays the list of bot commands')
-		await message.channel.send('`>>BOT_DEWEY for`: Makes you `@pro dewey decimal system`')
-		await message.channel.send('`>>BOT_DEWEY against`: Makes you `@anti dewey decimal system`')
-		await message.channel.send('`>>BOT_DEWEY out`: Makes you neutral on the dewey decimal system')
-		await message.channel.send('`>>BOT_PING`: Ping pong')
-		await message.channel.send('`>>BOT_SERVER join`: Gives you the `@Server player` role')
-		await message.channel.send('`>>BOT_SERVER leave`: Removes your `@Server player` role')
-		await message.channel.send('1 secret command :thinking:')
+		await message.channel.send("""`>>BOT_STATUS`: Tells you if the bot is online
+		`>>BOT_MUSIC`: Links a song
+		`>>BOT_WELCOME`: Says a welcome message
+		`>>BOT_HELP`: Displays the list of bot commands
+		`>>BOT_DEWEY for`: Makes you `@pro dewey decimal system`
+		`>>BOT_DEWEY against`: Makes you `@anti dewey decimal system`
+		`>>BOT_DEWEY out`: Makes you neutral on the dewey decimal system
+		`>>BOT_PING`: Ping pong
+		`>>BOT_SERVER join`: Gives you the `@Server player` role
+		`>>BOT_SERVER leave`: Removes your `@Server player` role
+		1 secret command :thinking:""");
 	elif '>>BOT_DEWEY' in message.content:
 		proRole = discord.utils.find(lambda r: r.name == 'pro dewey decimal system', message.guild.roles)
 		antiRole = discord.utils.find(lambda r: r.name == 'anti dewey decimal system', message.guild.roles)
