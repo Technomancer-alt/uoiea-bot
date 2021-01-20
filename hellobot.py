@@ -25,7 +25,7 @@ greetings = [
 	('technodancer does it have "What are you doing in my swamp!?"', 2),
 	('Hey! Look at this nerd', 5),
 	('You\'re finally awake', 3),
-	('<@0001> Say hello to this person', 5),
+	('<@416627393344569345> Say hello to this person', 5),
 	('Kon\'nichiwa', 10),
 	('You! Person who just joined! Very important question: What do you think of the Dewey Decimal System?', 5),
 	('I think the account that just joined is a bot', 5),
@@ -101,7 +101,7 @@ async def on_message(message: discord.message):
 			await message.channel.send('Take a side you coward')
 	elif '>>BOT_PING' in message.content:
 		print('Ping pong')
-		await message.channel.send('<@Aeiou#0001> Pong!')
+		await message.channel.send('<@416627393344569345> Pong!')
 	elif '>>BOT_PONG' in message.content:
 		print('pong ping')
 		await message.channel.send('Ping!')
