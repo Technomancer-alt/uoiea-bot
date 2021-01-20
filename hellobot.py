@@ -83,18 +83,7 @@ async def on_message(message: discord.message):
 		await message.channel.send('https://www.youtube.com/watch?v=c5daGZ96QGU&ab_channel=Misaki')
 	elif '>>BOT_HELP' in message.content:
 		print('Help requested')
-		await message.channel.send(
-			"""`>>BOT_STATUS`: Tells you if the bot is online
-		`>>BOT_MUSIC`: Links a song
-		`>>BOT_WELCOME`: Says a welcome message
-		`>>BOT_HELP`: Displays the list of bot commands
-		`>>BOT_DEWEY for`: Makes you `@pro dewey decimal system`
-		`>>BOT_DEWEY against`: Makes you `@anti dewey decimal system`
-		`>>BOT_DEWEY out`: Makes you neutral on the dewey decimal system
-		`>>BOT_PING`: Ping pong
-		`>>BOT_SERVER join`: Gives you the `@Server player` role
-		`>>BOT_SERVER leave`: Removes your `@Server player` role
-		1 secret command :thinking:""");
+		await message.channel.send('`>>BOT_STATUS`: Tells you if the bot is online\n`>>BOT_MUSIC`: Links a song\n`>>BOT_WELCOME`: Says a welcome message\n`>>BOT_HELP`: Displays the list of bot commands\n`>>BOT_DEWEY for`: Makes you `@pro dewey decimal system`\n`>>BOT_DEWEY against`: Makes you `@anti dewey decimal system`\n`>>BOT_DEWEY out`: Makes you neutral on the dewey decimal system\n`>>BOT_PING`: Ping pong\n`>>BOT_SERVER join`: Gives you the `@Server player` role\n`>>BOT_SERVER leave`: Removes your `@Server player` role\n1 secret command :thinking:');
 	elif '>>BOT_DEWEY' in message.content:
 		proRole = discord.utils.find(lambda r: r.name == 'pro dewey decimal system', message.guild.roles)
 		antiRole = discord.utils.find(lambda r: r.name == 'anti dewey decimal system', message.guild.roles)
@@ -112,7 +101,7 @@ async def on_message(message: discord.message):
 			await message.channel.send('Take a side you coward')
 	elif '>>BOT_PING' in message.content:
 		print('Ping pong')
-		await message.channel.send('<@0001> Pong!')
+		await message.channel.send('<@Aeiou#0001> Pong!')
 	elif '>>BOT_PONG' in message.content:
 		print('pong ping')
 		await message.channel.send('Ping!')
