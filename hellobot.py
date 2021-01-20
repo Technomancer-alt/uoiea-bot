@@ -101,7 +101,7 @@ async def on_message(message: discord.message):
 			await message.channel.send('Take a side you coward')
 	elif '>>BOT_PING' in message.content:
 		print('Ping pong')
-		await message.channel.send('<@416627393344569345> Pong!')
+		await message.channel.send('Pong!')
 	elif '>>BOT_PONG' in message.content:
 		print('pong ping')
 		await message.channel.send('Ping!')
