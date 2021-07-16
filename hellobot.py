@@ -18,6 +18,8 @@ greetings = [
 	('In a distant and secondhand set of dimensions, in an astral plane that was never meant to fly, the curling star mists waver and part... see... this latest member of our community', 1),
 	('Welcome to The Salty Spittoon. How tough are you?', 3),
 	('Freddie Mercury did nothing wrong', 3),
+	('Don\'t let you memes be dreams', 5),
+	('This place is not a place of honor... no highly esteemed deed is commemorated here... nothing valued is here', 3),
 	('Furthermore, I believe Carthage should be destroyed', 3),
 	('Looks like meat is back on the menu, boys!', 5),
 	('This is getting out of hand. Now there are two of them?', 5),
@@ -53,7 +55,7 @@ def getMessage():
 		selection -= entry[1]
 		if selection <= 0:
 			return entry[0]
-	return 'YOU CAUSED A GLITCH, YOU BUGGER!'
+	return 'YOU CAUSED A GLITCH, YOU TWERP!'
 
 
 @client.event
