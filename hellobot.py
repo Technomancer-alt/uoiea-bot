@@ -18,7 +18,7 @@ greetings = [
 	('In a distant and secondhand set of dimensions, in an astral plane that was never meant to fly, the curling star mists waver and part... see... this latest member of our community', 1),
 	('Welcome to The Salty Spittoon. How tough are you?', 3),
 	('Freddie Mercury did nothing wrong', 3),
-	('Don\'t let you memes be dreams', 5),
+	('Don\'t let your memes be dreams', 5),
 	('This place is not a place of honor... no highly esteemed deed is commemorated here... nothing valued is here', 3),
 	('Furthermore, I believe Carthage should be destroyed', 3),
 	('Looks like meat is back on the menu, boys!', 5),
